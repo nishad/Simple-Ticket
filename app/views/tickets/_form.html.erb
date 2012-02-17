@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :user_id, "Feedback by" %><br />
-    <%= f.number_field :user_id %>
+    <%= f.select :user_id, User.order("name ASC").map { |c| [c.name, c.id] }, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br />
-    <%= f.number_field :category_id %>
+    <%= f.select :category_id, Category.order("name ASC").map { |c| [c.name, c.id] }, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :title %><br />

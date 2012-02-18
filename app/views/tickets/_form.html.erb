@@ -1,7 +1,7 @@
 <%= form_for(@ticket) do |f| %>
   <% if @ticket.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+    <div class="alert alert-error">
+      <b><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</b>
 
       <ul>
       <% @ticket.errors.full_messages.each do |msg| %>
@@ -10,24 +10,28 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label :user_id, "Feedback by" %><br />
+    <%= f.label :user_id, "Feedback by" %>
     <%= f.select :user_id, User.order("name ASC").map { |c| [c.name, c.id] }, :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br />
+    <%= f.label :category_id %>
     <%= f.select :category_id, Category.order("name ASC").map { |c| [c.name, c.id] }, :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :title %>
+    <%= f.text_field :title, :class => "span5" %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description, :class => "span5" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit :class => "btn btn-success" %>
+    <% if @ticket.id %>
+      <%= button_to 'Cancel', @ticket, :class => "btn" %>
+    <% else %>
+      <%= button_to 'Cancel', tickets_path, :class => "btn" %>
+    <% end %>
   </div>
 <% end %>

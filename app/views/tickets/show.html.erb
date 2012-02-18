@@ -1,4 +1,12 @@
-<h1>Ticket Details</h1>
+<div class="page-header">
+  <h1>
+    Ticket Details
+    <% if user_signed_in? and current_user.is_admin %>
+      <%= bootstrap_icon_link_to 'Delete', @ticket, "icon-trash icon-white", confirm: 'Are you sure?', method: :delete, :class => "btn btn-danger" %>
+    <% end %>
+      <%= bootstrap_icon_link_to 'Edit', edit_ticket_path(@ticket), "icon-pencil icon-white", :class => "btn btn-primary" %>
+  </h1>
+</div>
 
 <p>
   <b>Category:</b>
@@ -19,7 +27,3 @@
   <b>Description:</b>
   <%= @ticket.description %>
 </p>
-
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
-<%= link_to 'Back', tickets_path %>

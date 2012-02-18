@@ -1,23 +1,26 @@
-<h1>Listing categories</h1>
+<div class="page-header">
+  <h1>
+    List of categories
+    <%= bootstrap_icon_link_to 'New Category', new_category_path, "icon-plus icon-white", :class => "btn btn-success" %>
+  </h1>
+</div>
 
-<table>
+<table class="table table-striped table-bordered">
+  <thead>
   <tr>
     <th>Name</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
-
+  </thead>
+  <tbody>
 <% @categories.each do |category| %>
   <tr>
     <td><%= category.name %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+      <%= bootstrap_icon_link_to 'Edit', edit_category_path(category), "icon-pencil icon-white", :class => "btn btn-small btn-primary" %>
+      <%= bootstrap_icon_link_to 'Delete', category, "icon-trash icon-white", confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-danger" %>
+    </td>
   </tr>
 <% end %>
+</tbody>
 </table>
-
-<br />
-
-<%= link_to 'New Category', new_category_path %>

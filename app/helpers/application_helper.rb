@@ -21,10 +21,6 @@ module ApplicationHelper
     ".html_safe
   end
   
-  def is_admin_icon is_admin
-    is_admin ? "<i class=\"icon-ok\"></i>".html_safe : ""
-  end
-  
   def show_flash
     f = ""
     f += "<div class=\"alert alert-success\">#{notice}</div>" if notice

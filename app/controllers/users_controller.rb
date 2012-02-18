@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.order("name ASC")
+    @users = User.includes(:tickets).order("name ASC")
 
     respond_to do |format|
       format.html # index.html.erb

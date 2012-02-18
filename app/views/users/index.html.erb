@@ -12,16 +12,21 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Admin</th>
+    <th>Tickets</th>
     <th></th>
   </tr>
   </thead>
   <tbody>
 <% @users.each do |user| %>
   <tr>
-    <td><%= user.name %></td>
+    <td>
+      <%= user.name %>
+      <% if user.is_admin %>
+        <span class="label label-info">Admin</span>
+      <% end %>
+    </td>
     <td><%= user.email %></td>
-    <td><%= is_admin_icon user.is_admin %></td>
+    <td><%= user.tickets.count %></td>
     <td>
       <%= bootstrap_icon_link_to "Edit", edit_user_path(user), "icon-pencil icon-white", :class => "btn btn-small btn-primary" %>
       <%= bootstrap_icon_link_to 'Delete', user, "icon-trash icon-white", confirm: 'Are you sure?', method: :delete, :class => "btn btn-small btn-danger" %>

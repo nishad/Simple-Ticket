@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.order("name ASC")
+    @categories = Category.includes(:tickets).order("name ASC")
 
     respond_to do |format|
       format.html # index.html.erb

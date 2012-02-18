@@ -8,22 +8,23 @@
   </h1>
 </div>
 
-<p>
-  <b>Category:</b>
-  <%= @ticket.category.name %>
-</p>
-
-<p>
-  <b>Feedback by:</b>
-  <%= @ticket.user.name %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @ticket.title %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @ticket.description %>
-</p>
+<table class="table table-striped table-bordered table-condensed">
+  <tbody>
+    <tr>
+      <td class="top"><b>Category:</b></td>
+      <td><%= @ticket.category.name %></td>
+    </tr>
+    <tr>
+      <td class="top"><b>Feedback by:</b></td>
+      <td><%= @ticket.user.name %></td>
+    </tr>
+    <tr>
+      <td class="top"><b>Title:</b></td>
+      <td><%= @ticket.title %></td>
+    </tr>
+    <tr>
+      <td class="top"><b>Description:</b></td>
+      <td><%= @ticket.description.gsub(/\n/, '<br/>').html_safe %></td>
+    </tr>
+  </tbody>
+</table>

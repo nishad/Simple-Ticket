@@ -27,11 +27,11 @@
     <%= f.text_area :description, :class => "span5" %>
   </div>
   <div class="form-actions">
-    <%= f.submit :class => "btn btn-success" %>
+    <%= f.submit :class => "btn btn-success" %><br />
     <% if @ticket.id %>
-      <%= button_to 'Cancel', @ticket, :class => "btn" %>
+      <%= link_to 'Cancel', @ticket, :class => "btn" %>
     <% else %>
-      <%= button_to 'Cancel', tickets_path, :class => "btn" %>
+      <%= link_to 'Cancel', tickets_path %>
     <% end %>
   </div>
 <% end %>

@@ -32,5 +32,6 @@ Category.create([
                 {name: "Closure Checklist"},
                 {name: "User Dashboard"},
                 {name: "Service Providers"},
-                {name: "Individuals"}
+                {name: "Individuals"},
+                {name: "Other"},
                 ])

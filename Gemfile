@@ -4,6 +4,7 @@ gem 'rails', '3.1.1'
 gem 'jquery-rails'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
+gem 'RedCloth'
 
 group :production do
   gem 'pg'

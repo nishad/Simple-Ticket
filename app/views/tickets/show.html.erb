@@ -11,6 +11,10 @@
 <table class="table table-striped table-bordered table-condensed">
   <tbody>
     <tr>
+      <td class="top"><b>Status:</b></td>
+      <td><%= ticket_status_label @ticket.ticket_status.name %></td>
+    </tr>
+    <tr>
       <td class="top"><b>Category:</b></td>
       <td><%= @ticket.category.name %></td>
     </tr>

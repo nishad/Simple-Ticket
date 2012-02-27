@@ -19,6 +19,10 @@
     <%= f.select :category_id, Category.order("name ASC").map { |c| [c.name, c.id] }, :include_blank => true %>
   </div>
   <div class="field">
+    <%= f.label :ticket_status_id %>
+    <%= f.select :ticket_status_id, TicketStatus.order("position ASC").map { |c| [c.name, c.id] }, :include_blank => true %>
+  </div>
+  <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title, :class => "span5" %>
   </div>

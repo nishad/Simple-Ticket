@@ -2,7 +2,7 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.includes(:category, :user)
+    @tickets = Ticket.includes(:category, :user, :ticket_status)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +25,7 @@ class TicketsController < ApplicationController
   # GET /tickets/new.json
   def new
     @ticket = Ticket.new
+    @ticket.ticket_status = TicketStatus.find_by_name("Open")
 
     respond_to do |format|
       format.html # new.html.erb

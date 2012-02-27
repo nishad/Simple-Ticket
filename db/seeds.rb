@@ -35,3 +35,5 @@ Category.create([
                 {name: "Individuals"},
                 {name: "Other"},
                 ])
+
+TicketStatus.create([{name: "Open", position: 1},{name: "Closed", position: 2}])

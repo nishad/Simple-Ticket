@@ -28,4 +28,14 @@ module ApplicationHelper
     f.html_safe
   end
   
+  def ticket_status_label status
+    label = case status
+      when "Open"
+        "important"
+      when "Closed"
+        "success"
+      end
+    "<span class=\"label label-#{label}\">#{status}</span>".html_safe
+  end
+  
 end
